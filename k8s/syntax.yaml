@@ -1,0 +1,28 @@
+# - comment, k8s will ignore this line
+
+# - we can use either .yml or .yaml for file extensions
+
+# Represent simple key values
+key: value
+name: ravi
+city: hyd
+
+dictionary:
+  key1: value1
+  key2: value2  
+  key3: value3
+
+trainer:
+  name: ravi
+  city: hyd
+  course: devops
+
+list:
+- item1
+- item2
+- item3
+
+courses:
+- aws
+- azure
+- devops
