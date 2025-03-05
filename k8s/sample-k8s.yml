@@ -1,0 +1,6 @@
+# k8s manifest files will have four top level items
+apiVersion:
+kind:
+metadata:
+spec:
+
