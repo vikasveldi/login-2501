@@ -1,0 +1,12 @@
+# Create Nginx Pod
+# kubectl run nginx-pod --image nginx --port=80
+apiVersion: v1 # key: value
+kind: Pod # key: value
+metadata: # dictionary 
+  name: nginx-pod 
+spec: # dictionary
+  containers: # list
+  - name: c1
+    image: nginx
+    ports:
+    - containerPort: 80
