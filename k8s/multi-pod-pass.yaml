@@ -1,0 +1,14 @@
+# Create Multi Container Pod
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: multi-pod-pass
+spec: 
+  containers: 
+  - name: build-container
+    image: ubunt:22.04
+    command: ['sh', '-c', 'echo "Hello, Kubernetes!" && sleep 3600']
+  - name: deployment-container
+    image: nginx
+    ports:
+    - containerPort: 80
