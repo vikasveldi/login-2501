@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: login
-        image: ravi2krishna/login-2501:1.1
+        image: ravi2krishna/login-2501:2.1
         ports:
         - containerPort: 80
