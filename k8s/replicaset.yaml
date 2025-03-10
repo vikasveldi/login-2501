@@ -1,3 +1,4 @@
+# Replicaset for Availability Of PODS
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
