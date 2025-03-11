@@ -1,0 +1,6 @@
+
+  name: login
+  replicas: 1
+  app: login
+  image: ravi2krishna/login-2501
+  containerPort: 80
