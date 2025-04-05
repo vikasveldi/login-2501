@@ -222,7 +222,6 @@ resource "aws_vpc_security_group_ingress_rule" "lms-web-sg-http" {
 # Security Group Rule - Egress (outbound)
 resource "aws_vpc_security_group_egress_rule" "lms-web-sg-egress" {
   security_group_id = aws_security_group.lms-web-sg.id
-
   cidr_ipv4   = "0.0.0.0/0"
   from_port   = 0
   ip_protocol = "tcp"
