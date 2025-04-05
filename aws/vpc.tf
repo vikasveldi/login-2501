@@ -196,37 +196,31 @@ resource "aws_security_group" "lms-web-sg" {
   description = "Allow WEB Traffic"
   vpc_id      = aws_vpc.lms-vpc.id
 
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   tags = {
     Name = "lms-web-sg"
   }
-}
-
-# Security Group Rule - SSH
-resource "aws_vpc_security_group_ingress_rule" "lms-web-sg-ssh" {
-  security_group_id = aws_security_group.lms-web-sg.id
-  cidr_ipv4         = "0.0.0.0/0"
-  from_port         = 22
-  ip_protocol       = "tcp"
-  to_port           = 22
-}
-
-# Security Group Rule - HTTP
-resource "aws_vpc_security_group_ingress_rule" "lms-web-sg-http" {
-  security_group_id = aws_security_group.lms-web-sg.id
-  cidr_ipv4         = "0.0.0.0/0"
-  from_port         = 80
-  ip_protocol       = "tcp"
-  to_port           = 80
-}
-
-# Security Group Rule - Egress (outbound)
-resource "aws_vpc_security_group_egress_rule" "lms-web-sg-egress" {
-  security_group_id = aws_security_group.lms-web-sg.id
-
-  cidr_ipv4   = "0.0.0.0/0"
-  from_port   = 0
-  ip_protocol = "tcp"
-  to_port     = 65535
 }
 
 # Security Group - API
