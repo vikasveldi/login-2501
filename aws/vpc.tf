@@ -210,3 +210,11 @@ resource "aws_vpc_security_group_ingress_rule" "lms-web-sg-ssh" {
   to_port           = 22
 }
 
+# Security Group Rule - HTTP
+resource "aws_vpc_security_group_ingress_rule" "lms-web-sg-http" {
+  security_group_id = aws_security_group.lms-web-sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 80
+  ip_protocol       = "tcp"
+  to_port           = 80
+}
