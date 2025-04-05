@@ -200,3 +200,13 @@ resource "aws_security_group" "lms-web-sg" {
     Name = "lms-web-sg"
   }
 }
+
+# Security Group Rule - SSH
+resource "aws_vpc_security_group_ingress_rule" "lms-web-sg-ssh" {
+  security_group_id = aws_security_group.lms-web-sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 22
+  ip_protocol       = "tcp"
+  to_port           = 22
+}
+
