@@ -150,3 +150,9 @@ resource "aws_network_acl" "lms-api-nacl" {
     Name = "lms-api-nacl"
   }
 }
+
+# NACL - API Subnet Association
+resource "aws_network_acl_association" "lms-api-nacl-asc" {
+  network_acl_id = aws_network_acl.lms-api-nacl.id
+  subnet_id      = aws_subnet.lms-api-sn.id
+}
