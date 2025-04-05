@@ -284,7 +284,15 @@ resource "aws_instance" "lms-web-server" {
   key_name = "2501"
   subnet_id = aws_subnet.lms-web-sn.id
   vpc_security_group_ids = [aws_security_group.lms-web-sg.id]
-  user_data     =  "${file("script.sh")}"
+    user_data     = <<-EOF
+                    #!/bin/bash
+                    
+                    # Setup App 
+                    sudo apt install nginx -y
+                    sudo rm -rf /var/www/html
+                    sudo git clone https://github.com/ravi2krishna/login-2501.git /var/www/html
+
+                  EOF
 
   tags = {
     Name = "lms-web-server"
