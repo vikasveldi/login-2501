@@ -219,6 +219,16 @@ resource "aws_vpc_security_group_ingress_rule" "lms-web-sg-http" {
   to_port           = 80
 }
 
+# Security Group Rule - Egress (outbound)
+resource "aws_vpc_security_group_egress_rule" "lms-web-sg-egress" {
+  security_group_id = aws_security_group.lms-web-sg.id
+
+  cidr_ipv4   = "0.0.0.0/0"
+  from_port   = 0
+  ip_protocol = "tcp"
+  to_port     = 65535
+}
+
 # Security Group - API
 resource "aws_security_group" "lms-api-sg" {
   name        = "lms-api"
@@ -248,6 +258,16 @@ resource "aws_vpc_security_group_ingress_rule" "lms-api-sg-http" {
   to_port           = 8080
 }
 
+# Security Group Rule - Egress (outbound)
+resource "aws_vpc_security_group_egress_rule" "lms-api-sg-egress" {
+  security_group_id = aws_security_group.lms-api-sg.id
+
+  cidr_ipv4   = "0.0.0.0/0"
+  from_port   = 0
+  ip_protocol = "tcp"
+  to_port     = 65535
+}
+
 # Security Group - DB
 resource "aws_security_group" "lms-db-sg" {
   name        = "lms-db"
@@ -275,6 +295,16 @@ resource "aws_vpc_security_group_ingress_rule" "lms-db-sg-postgres" {
   from_port         = 5432
   ip_protocol       = "tcp"
   to_port           = 5432
+}
+
+# Security Group Rule - Egress (outbound)
+resource "aws_vpc_security_group_egress_rule" "lms-db-sg-egress" {
+  security_group_id = aws_security_group.lms-db-sg.id
+
+  cidr_ipv4   = "0.0.0.0/0"
+  from_port   = 0
+  ip_protocol = "tcp"
+  to_port     = 65535
 }
 
 # EC2 Server - Web
