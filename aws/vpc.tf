@@ -284,7 +284,7 @@ resource "aws_instance" "lms-web-server" {
   key_name = "2501"
   subnet_id = aws_subnet.lms-web-sn.id
   vpc_security_group_ids = [aws_security_group.lms-web-sg.id]
-  user_data = file("script.sh")
+  user_data     =  "${file("script.sh")}"
 
   tags = {
     Name = "lms-web-server"
