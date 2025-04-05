@@ -247,3 +247,14 @@ resource "aws_vpc_security_group_ingress_rule" "lms-api-sg-http" {
   ip_protocol       = "tcp"
   to_port           = 8080
 }
+
+# Security Group - DB
+resource "aws_security_group" "lms-db-sg" {
+  name        = "lms-db"
+  description = "Allow DB Traffic"
+  vpc_id      = aws_vpc.lms-vpc.id
+
+  tags = {
+    Name = "lms-db-sg"
+  }
+}
