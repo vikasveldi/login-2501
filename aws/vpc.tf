@@ -156,3 +156,30 @@ resource "aws_network_acl_association" "lms-api-nacl-asc" {
   network_acl_id = aws_network_acl.lms-api-nacl.id
   subnet_id      = aws_subnet.lms-api-sn.id
 }
+
+# NACL - DB Subnet
+resource "aws_network_acl" "lms-db-nacl" {
+  vpc_id = aws_vpc.lms-vpc.id
+
+  egress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  ingress {
+    protocol   = "tcp"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 65535
+  }
+
+  tags = {
+    Name = "lms-db-nacl"
+  }
+}
