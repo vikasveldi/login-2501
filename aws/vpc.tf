@@ -117,3 +117,9 @@ resource "aws_network_acl" "lms-web-nacl" {
     Name = "lms-web-nacl"
   }
 }
+
+# NACL - Web Subnet Association
+resource "aws_network_acl_association" "lms-web-nacl-asc" {
+  network_acl_id = aws_network_acl.lms-web-nacl.id
+  subnet_id      = aws_subnet.lms-web-sn.id
+}
