@@ -218,3 +218,14 @@ resource "aws_vpc_security_group_ingress_rule" "lms-web-sg-http" {
   ip_protocol       = "tcp"
   to_port           = 80
 }
+
+# Security Group - API
+resource "aws_security_group" "lms-api-sg" {
+  name        = "lms-api"
+  description = "Allow API Traffic"
+  vpc_id      = aws_vpc.lms-vpc.id
+
+  tags = {
+    Name = "lms-api-sg"
+  }
+}
