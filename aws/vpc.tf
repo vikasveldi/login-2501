@@ -189,3 +189,14 @@ resource "aws_network_acl_association" "lms-db-nacl-asc" {
   network_acl_id = aws_network_acl.lms-db-nacl.id
   subnet_id      = aws_subnet.lms-db-sn.id
 }
+
+# Security Group - Web
+resource "aws_security_group" "lms-web-sg" {
+  name        = "lms-web"
+  description = "Allow WEB Traffic"
+  vpc_id      = aws_vpc.lms-vpc.id
+
+  tags = {
+    Name = "lms-web-sg"
+  }
+}
