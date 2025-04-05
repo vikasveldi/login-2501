@@ -84,3 +84,9 @@ resource "aws_route_table" "lms-pvt-rt" {
     Name = "lms-private-rt"
   }
 }
+
+# Private Route Table Association - Database Subnet
+resource "aws_route_table_association" "lms-pvt-rt-asc-db" {
+  subnet_id      = aws_subnet.lms-db-sn.id
+  route_table_id = aws_route_table.lms-pvt-rt.id
+}
