@@ -183,3 +183,9 @@ resource "aws_network_acl" "lms-db-nacl" {
     Name = "lms-db-nacl"
   }
 }
+
+# NACL - DB Subnet Association
+resource "aws_network_acl_association" "lms-db-nacl-asc" {
+  network_acl_id = aws_network_acl.lms-db-nacl.id
+  subnet_id      = aws_subnet.lms-db-sn.id
+}
