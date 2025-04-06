@@ -11,7 +11,7 @@ sudo apt install nginx -y
 echo "Cleanup Document Root"
 sudo rm -rf /var/www/html
 
-echo "Clone Login App"
-sudo git clone https://github.com/ravi2krishna/login-2501.git /var/www/html
+echo "Clone Ecommerce App"
+sudo git clone https://github.com/ravi2krishna/ecomm.git /var/www/html
 
 echo "Finished Deployment Process"
