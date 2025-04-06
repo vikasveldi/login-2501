@@ -188,5 +188,5 @@ resource "azurerm_network_interface" "lms-web-nic" {
 # WEB NIC NSG Association
 resource "azurerm_network_interface_security_group_association" "lms-web-nic-nsg" {
   network_interface_id          = azurerm_network_interface.lms-web-nic.id
-  network_security_group_id     = azurerm_application_security_group.lms-web-nsg.id
+  network_security_group_id     = azurerm_network_security_group.lms-web-nsg.id
 }
