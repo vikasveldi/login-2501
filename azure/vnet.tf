@@ -204,3 +204,9 @@ resource "azurerm_network_interface" "lms-api-nic" {
     public_ip_address_id          = azurerm_public_ip.lms-api-pip.id
   }
 }
+
+# API NIC NSG Association
+resource "azurerm_network_interface_security_group_association" "lms-api-nic-nsg" {
+  network_interface_id          = azurerm_network_interface.lms-api-nic.id
+  network_security_group_id     = azurerm_network_security_group.lms-api-nsg.id
+}
