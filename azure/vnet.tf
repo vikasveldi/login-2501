@@ -223,3 +223,9 @@ resource "azurerm_network_interface" "lms-db-nic" {
     private_ip_address_allocation = "Dynamic"
   }
 }
+
+# DB NIC NSG Association
+resource "azurerm_network_interface_security_group_association" "lms-db-nic-nsg" {
+  network_interface_id          = azurerm_network_interface.lms-db-nic.id
+  network_security_group_id     = azurerm_network_security_group.lms-db-nsg.id
+}
