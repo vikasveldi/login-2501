@@ -133,3 +133,10 @@ resource "azurerm_network_security_rule" "lms-api-nsg-http" {
   resource_group_name         = azurerm_resource_group.lms-rg.name
   network_security_group_name = azurerm_network_security_group.lms-api-nsg.name
 }
+
+# DB Network Security Group
+resource "azurerm_network_security_group" "lms-db-nsg" {
+  name                = "lms-db-firewall"
+  location            = azurerm_resource_group.lms-rg.location
+  resource_group_name = azurerm_resource_group.lms-rg.name
+}
