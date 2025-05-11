@@ -1,13 +1,15 @@
 #Create pod and run nginx container inside the pod.
 
 #kubectl run nginx-pod --image nginx --port 80
+#
 apiVersion: v1
 kind: Pod
 metadata:
   name: nginx-pod
 spec:
-  container:
-    - name: nginx-container
-      image: nginx
-      ports:
-        - containerPort: 80
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 80
+
