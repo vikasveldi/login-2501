@@ -1,0 +1,21 @@
+#Key: value
+name: vikkas
+
+#dictionaries/map:
+#key: value
+#key: value
+#key: value
+trainer:
+  name: ravi
+  city: hyd
+  course: devops
+
+#arraylist:
+#- item
+#- item
+#- item
+
+courses:
+  - aws
+  - azure
+  - devops
