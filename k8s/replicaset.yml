@@ -1,7 +1,7 @@
 #Replicaset object
 
 apiVersion: apps/v1
-kind: Replicaset
+kind: ReplicaSet
 metadata: #Replicaset metadata
   name: nginx-replicaset
 spec: #Replicaset Spec
