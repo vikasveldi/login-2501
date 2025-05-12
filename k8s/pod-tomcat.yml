@@ -9,4 +9,4 @@ spec:
     - name: tomcat-caontainer
       image: tomcat
       ports:
-        - containerPort: 8080
+      - containerPort: 8080
