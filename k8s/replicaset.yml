@@ -15,7 +15,7 @@ spec: #Replicaset Spec
         app: nginx
     spec: #Pod Spec
       containers:
-        - name: nginx-container
-          image: nginx
-          ports:
-            - containerPort: 80
+      - name: nginx-container
+        image: nginx
+        ports:
+        - containerPort: 80
