@@ -6,7 +6,7 @@ metadata:
   name: tomcat-pod
 spec:
   containers:
-    - name: tomcat-caontainer
-      image: tomcat
-      ports:
-      - containerPort: 8080
+  - name: tomcat-caontainer
+    image: tomcat
+    ports:
+    - containerPort: 8080
